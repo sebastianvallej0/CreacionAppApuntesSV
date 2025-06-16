@@ -3,27 +3,24 @@
              x:Class="CreacionAppApuntesSV.Views.AboutPage"
              Title="Acerca de">
 
-    <VerticalStackLayout Padding="30" Spacing="25">
+    <VerticalStackLayout Padding="30" Spacing="20" HorizontalOptions="Center">
 
-        <!-- Ícono representativo -->
         <Image Source="tuntun.jpg"
                HeightRequest="140"
                WidthRequest="140"
-               HorizontalOptions="Center"
                Aspect="AspectFill"
+               HorizontalOptions="Center"
                Clip="Circle" />
 
-        <!-- Nombre del estudiante -->
         <Label Text="Sebastián Vallejo"
-               FontSize="26"
+               FontSize="28"
                FontAttributes="Bold"
                HorizontalOptions="Center" />
 
-        <!-- Descripción personal -->
-        <Label Text="Soy estudiante de Ingeniería de Software. Me interesa crear aplicaciones útiles y explorar nuevas tecnologías. Esta app es un ejemplo de manejo de archivos con .NET MAUI."
+        <Label Text="Soy estudiante de Ingeniería de Software. Me apasiona el desarrollo de aplicaciones y la tecnología."
                FontSize="16"
                TextColor="Gray"
-               HorizontalTextAlignment="Center"
-               Margin="10,0"/>
+               HorizontalTextAlignment="Center" />
+
     </VerticalStackLayout>
 </ContentPage>

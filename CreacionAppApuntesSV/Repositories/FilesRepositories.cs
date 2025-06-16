@@ -6,7 +6,7 @@ namespace CreacionAppApuntesSV.Repositories
 {
     internal class FilesRepositories
     {
-        private string filePath = FileSystem.AppDataDirectory + "/archivo1.txt";
+        private readonly string filePath = Path.Combine(FileSystem.AppDataDirectory, "archivo1.txt");
 
         public async Task<bool> GenerarArchivo(string texto)
         {
@@ -15,7 +15,7 @@ namespace CreacionAppApuntesSV.Repositories
                 await File.WriteAllTextAsync(filePath, texto);
                 return File.Exists(filePath);
             }
-            catch (Exception)
+            catch
             {
                 return false;
             }
@@ -31,7 +31,7 @@ namespace CreacionAppApuntesSV.Repositories
                 }
                 return "No existe el archivo.";
             }
-            catch (Exception)
+            catch
             {
                 return "Error al leer el archivo.";
             }

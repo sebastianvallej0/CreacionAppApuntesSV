@@ -15,24 +15,24 @@ public partial class MainPage : ContentPage
 
     private async void CargarInformacionArchivo()
     {
-        string texto = await _filesRepository.DevuelveInformacionArchivo();
+        var texto = await _filesRepository.DevuelveInformacionArchivo();
         LabelArchivo.Text = texto;
     }
 
     private async void BtnGuardarArchivo_Clicked(object sender, EventArgs e)
     {
-        string texto = TxtArchivo.Text;
+        var texto = TxtArchivo.Text;
         if (!string.IsNullOrWhiteSpace(texto))
         {
-            bool resultado = await _filesRepository.GenerarArchivo(texto);
-            if (resultado)
+            bool guardo = await _filesRepository.GenerarArchivo(texto);
+            if (guardo)
             {
-                await DisplayAlert("Éxito", "El archivo fue guardado.", "OK");
+                await DisplayAlert("Éxito", "Archivo guardado", "OK");
                 CargarInformacionArchivo();
             }
             else
             {
-                await DisplayAlert("Error", "No se pudo guardar el archivo.", "OK");
+                await DisplayAlert("Error", "No se pudo guardar", "OK");
             }
         }
     }
