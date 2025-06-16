@@ -1,4 +1,4 @@
-namespace CreacionAppApuntesSV
+namespace CreacionAppApuntesSV.Views
 {
     public partial class AboutPage : ContentPage
     {

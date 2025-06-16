@@ -1,24 +1,29 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CreacionAppApuntesSV.AboutPage"
+             x:Class="CreacionAppApuntesSV.Views.AboutPage"
              Title="Acerca de">
 
-    <VerticalStackLayout Padding="20" Spacing="20">
+    <VerticalStackLayout Padding="30" Spacing="25">
 
-        <Image Source="icon.png"
-               HeightRequest="120"
-               WidthRequest="120"
-               HorizontalOptions="Center"/>
-
-        <Label Text="Sebastián Vallejo"
-               FontSize="24"
+        <!-- Ícono representativo -->
+        <Image Source="tuntun.jpg"
+               HeightRequest="140"
+               WidthRequest="140"
                HorizontalOptions="Center"
-               FontAttributes="Bold" />
+               Aspect="AspectFill"
+               Clip="Circle" />
 
-        <Label Text="Estudiante apasionado por la programación y la tecnología. Siempre buscando aprender algo nuevo y mejorar mis habilidades."
+        <!-- Nombre del estudiante -->
+        <Label Text="Sebastián Vallejo"
+               FontSize="26"
+               FontAttributes="Bold"
+               HorizontalOptions="Center" />
+
+        <!-- Descripción personal -->
+        <Label Text="Soy estudiante de Ingeniería de Software. Me interesa crear aplicaciones útiles y explorar nuevas tecnologías. Esta app es un ejemplo de manejo de archivos con .NET MAUI."
                FontSize="16"
+               TextColor="Gray"
                HorizontalTextAlignment="Center"
-               TextColor="Gray" />
-
+               Margin="10,0"/>
     </VerticalStackLayout>
 </ContentPage>
