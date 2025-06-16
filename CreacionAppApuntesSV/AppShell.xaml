@@ -1,15 +1,15 @@
-<?xml version="1.0" encoding="UTF-8" ?>
 <Shell
-    x:Class="CreacionAppApuntesSV.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:CreacionAppApuntesSV"
-    Shell.FlyoutBehavior="Flyout"
-    Title="CreacionAppApuntesSV">
+    xmlns:views="clr-namespace:CreacionAppApuntesSV"
+    x:Class="CreacionAppApuntesSV.AppShell">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <FlyoutItem Title="Inicio" Icon="home.png">
+        <ShellContent ContentTemplate="{DataTemplate views:MainPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Acerca de" Icon="about.png">
+        <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" />
+    </FlyoutItem>
 
 </Shell>
