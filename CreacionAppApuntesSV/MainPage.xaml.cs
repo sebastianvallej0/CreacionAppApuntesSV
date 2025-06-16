@@ -1,25 +1,27 @@
-﻿namespace CreacionAppApuntesSV
+﻿using System.Threading.Tasks;
+using CreacionAppApuntesSV.Repositories;
+
+namespace CreacionAppApuntesSV
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
-
+       
+        private FilesRepositories _filesRepository;
         public MainPage()
         {
+            _filesRepository=new FilesRepositories();
             InitializeComponent();
         }
-
-        private void OnCounterClicked(object sender, EventArgs e)
+        private async Task CargarInformacionArchivo()
         {
-            count++;
-
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
-
-            SemanticScreenReader.Announce(CounterBtn.Text);
+            string texto = await _filesRepository.DevuelveInformacionArchivo();
+            LableArchivo.Text= texto;
         }
+        private void BtnGuardarArchivo_Clicked(object sender, EventArgs e)
+        {
+
+        }
+        
     }
 
 }
