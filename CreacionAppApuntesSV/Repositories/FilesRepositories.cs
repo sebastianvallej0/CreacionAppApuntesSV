@@ -1,55 +1,41 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace CreacionAppApuntesSV.Repositories
 {
     internal class FilesRepositories
     {
-        private string filePath = FileSystem.AppDataDirectory + "/archivo1.txt";
+        private string filePath = Path.Combine(FileSystem.AppDataDirectory, "archivo1.txt");
 
         public async Task<bool> GenerarArchivo(string texto)
         {
             try
             {
                 await File.WriteAllTextAsync(filePath, texto);
-                if (File.Exists(filePath))
-                {
-                    return true;
-
-                }
-                return false;
+                return File.Exists(filePath);
             }
-
-            catch (Exception)
+            catch
             {
                 return false;
-
             }
         }
-
-
 
         public async Task<string> DevuelveInformacionArchivo()
         {
             try
             {
-
                 if (File.Exists(filePath))
                 {
-                    string texto = await File.ReadAllTextAsync(filePath);
-                    return texto;
+                    return await File.ReadAllTextAsync(filePath);
                 }
                 return "No existe el archivo.";
             }
-
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                return $"Error al leer archivo: {ex.Message}";
             }
-
         }
     }
 }
+IReadOnlyCollection de errores en files repositories
